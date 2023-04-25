@@ -64,6 +64,12 @@ namespace TSP_Lab_3
                 {
                     throw new Exception("Сумма одной или нескольких строк не равна 1!");
                 }
+                else if (nud1.Value < 0 || nud2.Value < 0 || nud3.Value < 0
+                 || nud4.Value < 0 || nud5.Value < 0 || nud6.Value < 0
+                 || nud7.Value < 0 || nud8.Value < 0 || nud9.Value < 0)
+                {
+                    throw new Exception("Одна или несколько вероятностей меньше 0!");
+                }
                 else
                 {
                     if (radioButton1.Checked)
