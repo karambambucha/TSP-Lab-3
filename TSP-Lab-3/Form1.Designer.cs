@@ -44,9 +44,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nud13 = new System.Windows.Forms.NumericUpDown();
+            this.nud12 = new System.Windows.Forms.NumericUpDown();
+            this.nud11 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -61,6 +64,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud9)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
             this.SuspendLayout();
             // 
@@ -322,47 +328,104 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.nud13);
+            this.groupBox1.Controls.Add(this.nud12);
+            this.groupBox1.Controls.Add(this.nud11);
             this.groupBox1.Location = new System.Drawing.Point(8, 107);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(249, 89);
+            this.groupBox1.Size = new System.Drawing.Size(249, 66);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выберите изначальное состояние";
             // 
-            // radioButton3
+            // label10
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 67);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(49, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Снег";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(201, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Снег";
             // 
-            // radioButton2
+            // label9
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(51, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Ясно";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(129, 42);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Ясно";
             // 
-            // radioButton1
+            // label8
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.Text = "Дождь";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(58, 42);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Дождь";
+            // 
+            // nud13
+            // 
+            this.nud13.DecimalPlaces = 2;
+            this.nud13.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nud13.Location = new System.Drawing.Point(185, 19);
+            this.nud13.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nud13.Name = "nud13";
+            this.nud13.Size = new System.Drawing.Size(64, 20);
+            this.nud13.TabIndex = 22;
+            // 
+            // nud12
+            // 
+            this.nud12.DecimalPlaces = 2;
+            this.nud12.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nud12.Location = new System.Drawing.Point(115, 19);
+            this.nud12.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nud12.Name = "nud12";
+            this.nud12.Size = new System.Drawing.Size(64, 20);
+            this.nud12.TabIndex = 21;
+            this.nud12.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nud11
+            // 
+            this.nud11.DecimalPlaces = 2;
+            this.nud11.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nud11.Location = new System.Drawing.Point(45, 19);
+            this.nud11.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nud11.Name = "nud11";
+            this.nud11.Size = new System.Drawing.Size(64, 20);
+            this.nud11.TabIndex = 20;
             // 
             // numericUpDown10
             // 
@@ -376,7 +439,7 @@
             this.numericUpDown10.Size = new System.Drawing.Size(64, 20);
             this.numericUpDown10.TabIndex = 16;
             this.numericUpDown10.Value = new decimal(new int[] {
-            2,
+            1,
             0,
             0,
             0});
@@ -448,6 +511,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud9)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -472,13 +538,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.NumericUpDown numericUpDown10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nud13;
+        private System.Windows.Forms.NumericUpDown nud12;
+        private System.Windows.Forms.NumericUpDown nud11;
     }
 }
 

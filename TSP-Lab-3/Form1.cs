@@ -6,17 +6,12 @@ namespace TSP_Lab_3
 {
     public partial class Form1 : Form
     {
-        private WeatherTypes preferredWeather;
         public Form1()
         {
             InitializeComponent();
             button1.Text = "Узнать прогноз погоды на " + numericUpDown10.Value + " дней(-я)";
         }
-        enum WeatherTypes
-        {
-            Rainy, Sunny, Snowy
-        }
-        double[,] Multiplication(double[,] a, double[,] b)
+        double[,] MatrixMultiplication(double[,] a, double[,] b)
         {
             if (a.GetLength(1) != b.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
             double[,] r = new double[a.GetLength(0), b.GetLength(1)];
@@ -26,16 +21,48 @@ namespace TSP_Lab_3
                         r[i, j] += a[i, k] * b[k, j];
             return r;
         }
-        double[,] MatrixPower(double[,] a, int power)
+        public string Print(double[] vector)
         {
-            double[,] res = a;
-            for (int i = 0; i < power; i++)
+            var tableStr = new StringBuilder();
+            
+                for (int j = 0; j < vector.GetLength(0); j++)
+                {
+                    tableStr.Append($"[{string.Format("{0:f10}", vector[j])}]\t");
+                }
+                tableStr.Append("\n");
+
+            tableStr.Append("\n");
+            return tableStr.ToString();
+        }
+        double[,] VectorMatrixMultiplication(double[,] inputMartix, double[] vector)
+        {
+            double[,] resultMatrix;
+
+            resultMatrix = new double[1, vector.Length];
+
+            for (var i = 0; i < vector.Length; i++)
             {
-                res = Multiplication(res, a);
-                richTextBox1.Text += $"Прогноз погоды через {i + 1} дней(-я): \n";
-                richTextBox1.Text += Print(res);
+                resultMatrix[0, i] = 0;
+                for (var k = 0; k < vector.Length; k++)
+                {
+                    resultMatrix[0, i] += inputMartix[k, i] * vector[k];
+                }
             }
-            return res;
+            return resultMatrix;
+        }
+        void MatrixPower(double[,] a, double[] vector, int power)
+        {
+            double[,] res = VectorMatrixMultiplication(a,vector);
+            richTextBox1.Text += $"Прогноз погоды завтра: \n";
+            richTextBox1.Text += Print(res);
+            for (int i = 1; i < power; i++)
+            {
+                double[,] resu = a;
+                resu = MatrixMultiplication(resu, a);
+                double[,] matr = VectorMatrixMultiplication(resu, vector);
+                richTextBox1.Text += $"Прогноз погоды через {i+1} дней(-я): \n";
+                richTextBox1.Text += Print(matr);
+            }
         }
         string Print(double[,] a)
         {
@@ -44,10 +71,8 @@ namespace TSP_Lab_3
             {
                 for (int j = 0; j < a.GetLength(1); j++)
                 {
-                    tableStr.Append($"[{string.Format("{0:f10}", a[i, j])}]\t");
+                    tableStr.Append($"[{a[i, j]}]\t");
                 }
-                if (Array.IndexOf(Enum.GetValues(preferredWeather.GetType()), preferredWeather) == i)
-                    tableStr.Append("(*)");
                 tableStr.Append("\n");
             }
 
@@ -70,19 +95,18 @@ namespace TSP_Lab_3
                 {
                     throw new Exception("Одна или несколько вероятностей меньше 0!");
                 }
+                else if (nud11.Value + nud12.Value + nud13.Value != 1)
+                {
+                    throw new Exception("Сумма вектора изначнальных вероятностей не равна 1!");
+                }
                 else
                 {
-                    if (radioButton1.Checked)
-                        preferredWeather = WeatherTypes.Rainy;
-                    else if (radioButton2.Checked)
-                        preferredWeather = WeatherTypes.Sunny;
-                    else if (radioButton3.Checked)
-                        preferredWeather = WeatherTypes.Snowy;
                     double[,] probabilityTable = { { (double)nud1.Value, (double)nud2.Value, (double)nud3.Value },
                                                    { (double)nud4.Value, (double)nud5.Value, (double)nud6.Value },
                                                    { (double)nud7.Value, (double)nud8.Value, (double)nud9.Value } };
                     richTextBox1.Text = "";
-                    MatrixPower(probabilityTable, (int)numericUpDown10.Value);
+                    double[] vector = { (double)nud11.Value, (double)nud12.Value, (double)nud13.Value };
+                    MatrixPower(probabilityTable, vector, (int)numericUpDown10.Value);
                 }
             }
             catch (Exception ex)
